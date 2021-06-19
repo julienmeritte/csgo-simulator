@@ -10,6 +10,6 @@ export class PlayerService {
   constructor(private http: HttpClient) { }
 
   findAllPlayers() {
-    return this.http.get<PlayerDto[]>("http://localhost:8080/player/all");
+    return this.http.get<PlayerDto[]>("/player/all");
   }
 }
