@@ -1,0 +1,41 @@
+@import "src/assets/main";
+
+.team-title {
+  font-family: Roboto-CSGO, sans-serif;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+  border: $csgo-dark-blue 1px solid;
+  line-height: 2rem;
+  margin: 4px 0;
+}
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  border: 2px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.default-template {
+  margin: 10px 0;
+  width: 250px;
+}
+
+@mixin addColor($color) {
+  color: $color;
+}
+
+$numbers: 0, 1, 2;
+
+@each $number in $numbers {
+  .player-template-#{$number} {
+    @if ($number % 2 == 0) {
+      @include addColor(black)
+    } @else {
+      @include addColor(white)
+    }
+  }
+}
+

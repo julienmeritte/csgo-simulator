@@ -1,0 +1,43 @@
+{
+  "firstteam": {
+    "name": "nom",
+    "points": 10,
+    "players": [
+      {
+        "firstname": "firstplayer",
+        "lastname": "firstplayerN",
+        "nickname": "FirstplayerM",
+        "role": "rifler"
+      },
+      {
+        "firstname": "secondplayer",
+        "lastname": "firstplayerN",
+        "nickname": "FirstplayerM",
+        "role": "rifler"
+      },
+      {
+        "firstname": "thirdplayer",
+        "lastname": "firstplayerN",
+        "nickname": "FirstplayerM",
+        "role": "rifler"
+      },{
+        "firstname": "fourthplayer",
+        "lastname": "firstplayerN",
+        "nickname": "FirstplayerM",
+        "role": "rifler"
+      },
+      {
+        "firstname": "fifthplayer",
+        "lastname": "firstplayerN",
+        "nickname": "FirstplayerM",
+        "role": "rifler"
+      },
+      {
+        "firstname": "coachplayer",
+        "lastname": "firstplayerN",
+        "nickname": "FirstplayerM",
+        "role": "coach"
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+@import "assets/main";
+
+body {
+  padding: 0;
+  margin: 0;
+  color: whitesmoke;
+  font-family: Roboto-CSGO, sans-serif;
+  background-color: $csgo-grey-blue;
+  min-height: 100%;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+a {
+  color: whitesmoke;
+  text-decoration: none;
+
+  &:hover {
+    color: whitesmoke;
+  }
+}
