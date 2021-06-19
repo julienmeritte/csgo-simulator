@@ -21,7 +21,7 @@ public class TeamService {
 
     public Team createTeam(String name) {
 
-        var team = new Team();
+        Team team = new Team();
         team.setName(name);
 
         teamRepository.save(team);

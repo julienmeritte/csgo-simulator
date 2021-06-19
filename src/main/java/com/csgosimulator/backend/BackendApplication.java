@@ -29,21 +29,21 @@ public class BackendApplication implements CommandLineRunner {
     public void run(String... params) throws Exception {
 
         List<Player> listPlayers = new ArrayList<>();
-        var team = new Team();
+        Team team = new Team();
         team.setName("Test");
         team.setPlayers(listPlayers);
 
         teamService.createTeam(team);
 
 
-        var player = new Player();
+        Player player = new Player();
         player.setFirstname("Oleksandr");
         player.setLastname("Kostyliev");
         player.setNickname("s1mple");
 
         playerService.createPlayer(player);
 
-        var playerBis = new Player();
+        Player playerBis = new Player();
         playerBis.setFirstname("Denis");
         playerBis.setLastname("Sharipov");
         playerBis.setNickname("electronic");

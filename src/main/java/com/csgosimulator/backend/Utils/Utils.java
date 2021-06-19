@@ -9,7 +9,7 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 public final class Utils {
 
     public static JSONObject jsonifyParamsMissing(MissingServletRequestParameterException exception) throws JSONException {
-        var response = new JSONObject();
+        JSONObject response = new JSONObject();
         response.put("messsage", exception.getMessage());
         response.put("Param Name", exception.getParameterName());
         response.put("Param Type", exception.getParameterType());

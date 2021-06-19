@@ -2,6 +2,7 @@ package com.csgosimulator.backend.controllers;
 
 
 import com.csgosimulator.backend.Utils.Utils;
+import com.csgosimulator.backend.models.Player;
 import com.csgosimulator.backend.services.PlayerService;
 import lombok.extern.slf4j.Slf4j;
 import org.codehaus.jettison.json.JSONArray;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -24,7 +27,7 @@ public class PlayerController {
     @GetMapping("/all")
     public ResponseEntity<Object> getAllPlayers() {
 
-        var players = playerService.getAllPlayer();
+        List<Player> players = playerService.getAllPlayer();
 
         return ResponseEntity.status(200).body(players);
     }
@@ -36,7 +39,7 @@ public class PlayerController {
             throw new Exception(); // TODO
         }
 
-        var player = playerService.createPlayer(firstname, lastname, nickname);
+        Player player = playerService.createPlayer(firstname, lastname, nickname);
 
         return ResponseEntity.status(200).body(player);
     }
@@ -44,9 +47,9 @@ public class PlayerController {
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ResponseEntity<Object> handleMissingParams(MissingServletRequestParameterException exception) throws JSONException {
 
-        var response = new JSONObject();
+        JSONObject response = new JSONObject();
         response.put("message", "Params incorrects");
-        var jsonArray = new JSONArray();
+        JSONArray jsonArray = new JSONArray();
         jsonArray.put(Utils.jsonifyParamsMissing(exception));
         response.put("data", jsonArray);
 

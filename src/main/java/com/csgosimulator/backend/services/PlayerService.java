@@ -19,7 +19,7 @@ public class PlayerService {
 
     public Player createPlayer(String firstname, String lastname, String nickname) {
 
-        var player = new Player();
+        Player player = new Player();
         player.setFirstname(firstname);
         player.setLastname(lastname);
         player.setNickname(nickname);
