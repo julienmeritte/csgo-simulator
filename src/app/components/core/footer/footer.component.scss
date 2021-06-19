@@ -1,0 +1,16 @@
+@import "src/assets/main";
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  background-color: $csgo-dark-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer-content {
+
+}

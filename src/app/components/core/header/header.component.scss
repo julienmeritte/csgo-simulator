@@ -1,0 +1,14 @@
+@import '../../../../assets/main';
+
+.main-header {
+  height: 80px;
+  background-color: $csgo-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-icon {
+  width: 50px;
+  margin-right: 12px;
+}
