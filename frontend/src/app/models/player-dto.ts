@@ -5,5 +5,6 @@ export interface PlayerDto {
   firstname: string;
   lastname: string;
   nickname: string;
-  idTeam: number;
+  team: string;
+  photo: string;
 }

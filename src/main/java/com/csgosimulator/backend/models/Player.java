@@ -27,11 +27,15 @@ public class Player implements Serializable {
     @Column(nullable = false)
     private String nickname;
 
+    private String photo;
+
     @ManyToOne
     @JoinColumn(name = "idTeam")
     private Team team;
 
     public Player() {
-
+        if (photo == null) {
+            photo = "https://i.imgur.com/0CHEBuD.jpeg";
+        }
     }
 }

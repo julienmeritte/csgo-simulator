@@ -1,6 +1,7 @@
 package com.csgosimulator.backend.controllers;
 
 
+import com.csgosimulator.backend.Dto.PlayerDto;
 import com.csgosimulator.backend.Utils.Utils;
 import com.csgosimulator.backend.models.Player;
 import com.csgosimulator.backend.services.PlayerService;
@@ -27,9 +28,9 @@ public class PlayerController {
     @GetMapping("/all")
     public ResponseEntity<Object> getAllPlayers() {
 
-        List<Player> players = playerService.getAllPlayer();
+        List<PlayerDto> playerDtos = playerService.getAllPlayer();
 
-        return ResponseEntity.status(200).body(players);
+        return ResponseEntity.status(200).body(playerDtos);
     }
 
     @PostMapping("/add")

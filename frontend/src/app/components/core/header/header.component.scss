@@ -2,10 +2,11 @@
 
 .main-header {
   height: 80px;
-  background-color: $csgo-blue;
+  background-color: $csgo-black;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: $csgo-white;
 }
 
 .header-icon {

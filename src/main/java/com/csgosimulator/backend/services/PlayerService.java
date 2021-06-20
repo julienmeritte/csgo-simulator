@@ -1,10 +1,13 @@
 package com.csgosimulator.backend.services;
 
+import com.csgosimulator.backend.Dto.PlayerDto;
+import com.csgosimulator.backend.Utils.Utils;
 import com.csgosimulator.backend.models.Player;
 import com.csgosimulator.backend.repositories.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -29,7 +32,8 @@ public class PlayerService {
         return player;
     }
 
-    public List<Player> getAllPlayer() {
-        return playerRepository.getAllPlayers();
+    public List<PlayerDto> getAllPlayer() {
+        List<Player> players = playerRepository.getAllPlayers();
+        return Utils.playerToPlayerDto(players);
     }
 }

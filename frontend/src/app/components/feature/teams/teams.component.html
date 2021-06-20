@@ -1,9 +1,14 @@
-<div class="team-container">
-    <div class="player-template- default-template" *ngFor="let player of playerDto">
-      <p>Prénom: {{player.firstname}}</p>
-      <p>Nom: {{player.lastname}}</p>
-      <p>Pseudo: {{player.nickname}}</p>
-      <p>Rôle: {{player.idTeam}}</p>
+<div class="team-container justify-content-evenly">
+  <div class="card" style="width: 10rem;" *ngFor="let player of playerDto">
+    <img src="{{player.photo}}" class="card-img-top" alt="profile-picture">
+    <div class="card-body">
+      <h5 class="card-title d-flex justify-content-center card-title-custom">{{player.nickname}}</h5>
     </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{player.firstname}}</li>
+      <li class="list-group-item">{{player.lastname}}</li>
+      <li class="list-group-item">{{player.team}}</li>
+    </ul>
+  </div>
 </div>
 

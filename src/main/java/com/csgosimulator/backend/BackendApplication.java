@@ -4,6 +4,7 @@ import com.csgosimulator.backend.models.Player;
 import com.csgosimulator.backend.models.Team;
 import com.csgosimulator.backend.services.PlayerService;
 import com.csgosimulator.backend.services.TeamService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @SpringBootApplication
 public class BackendApplication implements CommandLineRunner {
 
@@ -30,7 +32,7 @@ public class BackendApplication implements CommandLineRunner {
 
         List<Player> listPlayers = new ArrayList<>();
         Team team = new Team();
-        team.setName("Test");
+        team.setName("Natus Vincere");
         team.setPlayers(listPlayers);
 
         teamService.createTeam(team);
@@ -40,14 +42,16 @@ public class BackendApplication implements CommandLineRunner {
         player.setFirstname("Oleksandr");
         player.setLastname("Kostyliev");
         player.setNickname("s1mple");
-
+        player.setPhoto("https://i.imgur.com/SfFxYEJ.png");
+        player.setTeam(team);
         playerService.createPlayer(player);
 
         Player playerBis = new Player();
         playerBis.setFirstname("Denis");
         playerBis.setLastname("Sharipov");
         playerBis.setNickname("electronic");
-
+        playerBis.setPhoto("https://i.imgur.com/hL20mNe.png");
+        playerBis.setTeam(team);
         playerService.createPlayer(playerBis);
 
         listPlayers.add(player);
