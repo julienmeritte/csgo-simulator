@@ -22,10 +22,12 @@ public class Team implements Serializable {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private Integer points;
+
     @OneToMany(mappedBy = "team")
     private List<Player> players;
 
     public Team() {
-
     }
 }

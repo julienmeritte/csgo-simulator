@@ -29,11 +29,16 @@ public class BackendApplication implements CommandLineRunner {
 
     @Override
     public void run(String... params) throws Exception {
+        initNavi();
+        initVita();
+    }
 
+    private void initNavi() {
         List<Player> listPlayers = new ArrayList<>();
         Team team = new Team();
         team.setName("Natus Vincere");
         team.setPlayers(listPlayers);
+        team.setPoints(0);
 
         teamService.createTeam(team);
 
@@ -51,6 +56,40 @@ public class BackendApplication implements CommandLineRunner {
         playerBis.setLastname("Sharipov");
         playerBis.setNickname("electronic");
         playerBis.setPhoto("https://i.imgur.com/hL20mNe.png");
+        playerBis.setTeam(team);
+        playerService.createPlayer(playerBis);
+
+        listPlayers.add(player);
+        listPlayers.add(playerBis);
+
+        team.setPlayers(listPlayers);
+
+        teamService.save(team);
+    }
+
+    private void initVita() {
+        List<Player> listPlayers = new ArrayList<>();
+        Team team = new Team();
+        team.setName("Vitality");
+        team.setPlayers(listPlayers);
+        team.setPoints(0);
+
+        teamService.createTeam(team);
+
+
+        Player player = new Player();
+        player.setFirstname("Mathieu");
+        player.setLastname("Herbaut");
+        player.setNickname("ZywOo");
+        player.setPhoto("https://i.imgur.com/ZqGTAfy.png");
+        player.setTeam(team);
+        playerService.createPlayer(player);
+
+        Player playerBis = new Player();
+        playerBis.setFirstname("Richard");
+        playerBis.setLastname("Papillon");
+        playerBis.setNickname("shox");
+        playerBis.setPhoto("https://i.imgur.com/HSuZJVg.png");
         playerBis.setTeam(team);
         playerService.createPlayer(playerBis);
 

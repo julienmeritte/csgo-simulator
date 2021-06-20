@@ -34,7 +34,7 @@ public class PlayerController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Object> addPlayer(@RequestParam(name = "firstname") String firstname, @RequestParam(name = "lastname") String lastname, @RequestParam(name = "nickname") String nickname) throws Exception {
+    public ResponseEntity<Object> addPlayer(@RequestParam(name = "firstname") String firstname, @RequestParam(name = "lastname") String lastname, @RequestParam(name = "nickname") String nickname, @RequestParam(name = "team", required = false) Long idTeam) throws Exception {
 
         if (firstname == null || lastname == null || nickname == null) {
             throw new Exception(); // TODO

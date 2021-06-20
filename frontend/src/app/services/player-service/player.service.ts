@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {PlayerDto} from "../../models/player-dto";
 
@@ -7,7 +7,8 @@ import {PlayerDto} from "../../models/player-dto";
 })
 export class PlayerService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   findAllPlayers() {
     return this.http.get<PlayerDto[]>("/player/all");

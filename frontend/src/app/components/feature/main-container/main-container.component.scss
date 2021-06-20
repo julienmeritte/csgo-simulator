@@ -2,11 +2,14 @@
 
 .main-container {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
   padding: 40px 140px;
   color: inherit;
   min-height: calc(100vh - 80px - 70px);
   background-color: $csgo-white;
+}
+
+app-teams {
+  flex-grow: 1;
 }

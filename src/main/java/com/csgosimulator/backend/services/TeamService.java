@@ -1,5 +1,7 @@
 package com.csgosimulator.backend.services;
 
+import com.csgosimulator.backend.Dto.TeamDto;
+import com.csgosimulator.backend.Utils.Utils;
 import com.csgosimulator.backend.models.Player;
 import com.csgosimulator.backend.models.Team;
 import com.csgosimulator.backend.repositories.PlayerRepository;
@@ -29,11 +31,17 @@ public class TeamService {
         return team;
     }
 
-    public List<Team> getAllTeam() {
-        return teamRepository.getAllTeams();
+    public List<TeamDto> getAllTeam() {
+        List<Team> teams = teamRepository.getAllTeams();
+        return Utils.teamToTeamDto(teams);
     }
 
     public void save(Team team) {
         teamRepository.save(team);
+    }
+
+    public TeamDto getTeamById(Long id) {
+        Team team = teamRepository.getById(id);
+        return Utils.teamToTeamDto(team);
     }
 }
