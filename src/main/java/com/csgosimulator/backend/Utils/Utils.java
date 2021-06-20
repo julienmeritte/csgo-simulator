@@ -2,11 +2,15 @@ package com.csgosimulator.backend.Utils;
 
 import com.csgosimulator.backend.Dto.PlayerDto;
 import com.csgosimulator.backend.Dto.TeamDto;
+import com.csgosimulator.backend.Dto.enums.RolesEnum;
 import com.csgosimulator.backend.models.Player;
 import com.csgosimulator.backend.models.Team;
+import com.csgosimulator.backend.services.PlayerService;
+import com.csgosimulator.backend.services.TeamService;
 import lombok.Getter;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 
 import java.util.ArrayList;
@@ -14,6 +18,12 @@ import java.util.List;
 
 @Getter
 public final class Utils {
+
+    @Autowired
+    private TeamService teamService;
+
+    @Autowired
+    private PlayerService playerService;
 
     public static JSONObject jsonifyParamsMissing(MissingServletRequestParameterException exception) throws JSONException {
         JSONObject response = new JSONObject();
@@ -34,6 +44,7 @@ public final class Utils {
             dto.setNickname(player.getNickname());
             dto.setTeam(player.getTeam().getName());
             dto.setPhoto(player.getPhoto());
+            dto.setRole(player.getRole());
             playerDtos.add(dto);
         }
         return playerDtos;
@@ -47,6 +58,7 @@ public final class Utils {
         dto.setNickname(player.getNickname());
         dto.setTeam(player.getTeam().getName());
         dto.setPhoto(player.getPhoto());
+        dto.setRole(player.getRole());
         return dto;
     }
 
@@ -81,5 +93,36 @@ public final class Utils {
         }
         dto.setPlayers(playerDtos);
         return dto;
+    }
+
+    public static Team initTeam(String name) {
+        List<Player> players = new ArrayList<>();
+        Team team = new Team();
+        team.setName(name);
+        team.setPlayers(players);
+        team.setPoints(0);
+
+        return team;
+    }
+
+    public static Player initPlayer(String firstname, String lastname, String nickname, String photo, Team team) {
+        Player player = new Player();
+        player.setFirstname(firstname);
+        player.setLastname(lastname);
+        player.setNickname(nickname);
+        player.setPhoto(photo);
+        player.setTeam(team);
+        return player;
+    }
+
+    public static Player initPlayer(String firstname, String lastname, String nickname, String photo, Team team, RolesEnum role) {
+        Player player = new Player();
+        player.setFirstname(firstname);
+        player.setLastname(lastname);
+        player.setNickname(nickname);
+        player.setPhoto(photo);
+        player.setTeam(team);
+        player.setRole(role);
+        return player;
     }
 }

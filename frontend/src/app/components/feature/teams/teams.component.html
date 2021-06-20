@@ -2,25 +2,32 @@
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
             aria-expanded="false">
-      Team
+      {{teamActual.name}}
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li *ngFor="let team of teamDto"><a class="dropdown-item" href="#" (click)="loadTeam(team.idTeam)">{{team.name}}</a></li>
+      <li *ngFor="let team of teamDto"><a class="dropdown-item" href="#"
+                                          (click)="loadTeam(team.idTeam)">{{team.name}}</a></li>
     </ul>
   </div>
   <div class="team-container justify-content-evenly">
     <div *ngIf="teamDto.length >  0" style="all: inherit">
-      <div class="card" style="width: 10rem;" *ngFor="let player of teamActual.players">
-        <img src="{{player.photo}}" class="card-img-top" alt="profile-picture">
-        <div class="card-body">
-          <h5 class="card-title d-flex justify-content-center card-title-custom">{{player.nickname}}</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{player.firstname}}</li>
-          <li class="list-group-item">{{player.lastname}}</li>
-          <li class="list-group-item">{{player.team}}</li>
-        </ul>
-      </div>
+      <ng-container *ngFor="let player of teamActual.players">
+        <ng-container *ngIf="player.role != coach">
+          <div class="card" style="width: 10rem;">
+            <img src="{{player.photo}}" class="card-img-top" alt="profile-picture">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-center">{{player.nickname}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{player.firstname}}</li>
+              <li class="list-group-item">{{player.lastname}}</li>
+              <li class="list-group-item">{{player.team}}</li>
+              <li class="list-group-item">{{player.role}}</li>
+            </ul>
+          </div>
+        </ng-container>
+      </ng-container>
+
     </div>
     <div *ngIf="teamDto.length <= 0" style="all: inherit">
       Aucune données

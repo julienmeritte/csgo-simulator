@@ -1,5 +1,6 @@
 package com.csgosimulator.backend.Dto;
 
+import com.csgosimulator.backend.Dto.enums.RolesEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,4 +13,5 @@ public class PlayerDto {
     String nickname;
     String team;
     String photo;
+    RolesEnum role;
 }

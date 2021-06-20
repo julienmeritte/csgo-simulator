@@ -1,18 +1,19 @@
 @import "src/assets/main";
 
-.card-title-custom {
+.card-title {
   margin: 0;
+  color: $csgo-black;
 }
 
 .card {
-  margin: 0 10px;
+  margin: 0;
 }
 
 .team-container {
   display: flex;
   flex-direction: row;
   width: auto;
-  //border: 2px solid black;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   flex-grow: 1;

@@ -1,5 +1,6 @@
 package com.csgosimulator.backend.models;
 
+import com.csgosimulator.backend.Dto.enums.RolesEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,6 +30,8 @@ public class Player implements Serializable {
 
     private String photo;
 
+    private RolesEnum role;
+
     @ManyToOne
     @JoinColumn(name = "idTeam")
     private Team team;
@@ -36,6 +39,9 @@ public class Player implements Serializable {
     public Player() {
         if (photo == null) {
             photo = "https://i.imgur.com/0CHEBuD.jpeg";
+        }
+        if (role == null) {
+            role = RolesEnum.backup;
         }
     }
 }

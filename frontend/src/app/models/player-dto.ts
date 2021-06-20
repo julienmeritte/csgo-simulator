@@ -7,4 +7,5 @@ export interface PlayerDto {
   nickname: string;
   team: string;
   photo: string;
+  role: RoleEnum;
 }

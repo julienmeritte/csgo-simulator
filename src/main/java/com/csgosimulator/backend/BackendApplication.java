@@ -1,5 +1,7 @@
 package com.csgosimulator.backend;
 
+import com.csgosimulator.backend.Dto.enums.RolesEnum;
+import com.csgosimulator.backend.Utils.Utils;
 import com.csgosimulator.backend.models.Player;
 import com.csgosimulator.backend.models.Team;
 import com.csgosimulator.backend.services.PlayerService;
@@ -34,71 +36,24 @@ public class BackendApplication implements CommandLineRunner {
     }
 
     private void initNavi() {
-        List<Player> listPlayers = new ArrayList<>();
-        Team team = new Team();
-        team.setName("Natus Vincere");
-        team.setPlayers(listPlayers);
-        team.setPoints(0);
-
+        Team team = Utils.initTeam("Natus Vincere");
         teamService.createTeam(team);
 
-
-        Player player = new Player();
-        player.setFirstname("Oleksandr");
-        player.setLastname("Kostyliev");
-        player.setNickname("s1mple");
-        player.setPhoto("https://i.imgur.com/SfFxYEJ.png");
-        player.setTeam(team);
-        playerService.createPlayer(player);
-
-        Player playerBis = new Player();
-        playerBis.setFirstname("Denis");
-        playerBis.setLastname("Sharipov");
-        playerBis.setNickname("electronic");
-        playerBis.setPhoto("https://i.imgur.com/hL20mNe.png");
-        playerBis.setTeam(team);
-        playerService.createPlayer(playerBis);
-
-        listPlayers.add(player);
-        listPlayers.add(playerBis);
-
-        team.setPlayers(listPlayers);
-
-        teamService.save(team);
+        playerService.createPlayer(Utils.initPlayer("Oleksandr", "Kostyliev", "s1mple", "https://i.imgur.com/SfFxYEJ.png", team, RolesEnum.awper));
+        playerService.createPlayer(Utils.initPlayer("Denis", "Sharipov", "electronic", "https://i.imgur.com/hL20mNe.png", team, RolesEnum.rifler));
+        playerService.createPlayer(Utils.initPlayer("Kirill", "Mikhailov", "Boombl4", "https://i.imgur.com/6ktDA2U.png", team, RolesEnum.leader));
+        playerService.createPlayer(Utils.initPlayer("Ilya", "Zalutskiy", "Perfecto", "https://i.imgur.com/xSbOXMf.png", team, RolesEnum.support));
+        playerService.createPlayer(Utils.initPlayer("Valeriy", "Vakhovskiy", "B1T", "https://i.imgur.com/xTQ7RX3.png", team, RolesEnum.rifler));
+        playerService.createPlayer(Utils.initPlayer("Andrey", "Gorodenskiy", "B1ad3", "https://i.imgur.com/uWPRw4c.jpeg", team, RolesEnum.coach));
     }
 
     private void initVita() {
-        List<Player> listPlayers = new ArrayList<>();
-        Team team = new Team();
-        team.setName("Vitality");
-        team.setPlayers(listPlayers);
-        team.setPoints(0);
-
+        Team team = Utils.initTeam("Vitality");
         teamService.createTeam(team);
 
+        playerService.createPlayer(Utils.initPlayer("Mathieu", "Herbaut", "ZywOo", "https://i.imgur.com/ZqGTAfy.png", team, RolesEnum.awper));
+        playerService.createPlayer(Utils.initPlayer("Richard", "Papillon", "shox", "https://i.imgur.com/HSuZJVg.png", team, RolesEnum.rifler));
 
-        Player player = new Player();
-        player.setFirstname("Mathieu");
-        player.setLastname("Herbaut");
-        player.setNickname("ZywOo");
-        player.setPhoto("https://i.imgur.com/ZqGTAfy.png");
-        player.setTeam(team);
-        playerService.createPlayer(player);
-
-        Player playerBis = new Player();
-        playerBis.setFirstname("Richard");
-        playerBis.setLastname("Papillon");
-        playerBis.setNickname("shox");
-        playerBis.setPhoto("https://i.imgur.com/HSuZJVg.png");
-        playerBis.setTeam(team);
-        playerService.createPlayer(playerBis);
-
-        listPlayers.add(player);
-        listPlayers.add(playerBis);
-
-        team.setPlayers(listPlayers);
-
-        teamService.save(team);
     }
 
 }

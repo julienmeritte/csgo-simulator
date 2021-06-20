@@ -1,11 +1,11 @@
 export enum RoleEnum {
-  lurker = "Lurker",
-  entry = "Entry Fragger",
-  leader = "Leader Ingame",
-  support = "Support",
-  awper = "Awper",
-  rifler = "Rifler",
-  coach = "Coach",
-  analyst = "Analyst",
-  backup = "Backup Player"
+  lurker = "lurker",
+  entry = "entry",
+  leader = "leader",
+  support = "support",
+  awper = "awper",
+  rifler = "rifler",
+  coach = "coach",
+  analyst = "analyst",
+  backup = "backup"
 }

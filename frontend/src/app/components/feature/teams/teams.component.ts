@@ -3,6 +3,7 @@ import {PlayerDto} from "../../../models/player-dto";
 import {TeamDto} from "../../../models/team-dto";
 import {PlayerService} from "../../../services/player-service/player.service";
 import {TeamService} from "../../../services/team-service/team.service";
+import {RoleEnum} from "../../../models/enums/role.enum"
 
 @Component({
   selector: 'app-teams',
@@ -11,7 +12,6 @@ import {TeamService} from "../../../services/team-service/team.service";
 })
 export class TeamsComponent implements OnInit {
 
-  //playerDto: PlayerDto[] = [];
   teamDto: TeamDto[] = [];
   teamActual: TeamDto = new class implements TeamDto {
     idTeam: number = 0;
@@ -19,19 +19,15 @@ export class TeamsComponent implements OnInit {
     players: PlayerDto[] = [];
     points: number = 0;
   };
+  coach: RoleEnum = RoleEnum.coach;
 
   constructor(private playerService: PlayerService, private teamService: TeamService) {
 
   }
 
   ngOnInit(): void {
-    //this.initPlayers();
     this.initTeams();
   }
-
-  // initPlayers() {
-  //   this.findAllPlayers();
-  // }
 
   initTeams() {
     this.findAllTeams()
@@ -59,17 +55,6 @@ export class TeamsComponent implements OnInit {
         console.log(error);
       });
   }
-
-  // findAllPlayers() {
-  //   this.playerService.findAllPlayers()
-  //     .pipe()
-  //     .subscribe(data => {
-  //       console.log(data);
-  //       this.playerDto = data;
-  //     }, error => {
-  //       console.log(error);
-  //     });
-  // }
 
   loadTeam(idTeam: number) {
     this.teamDto.forEach(team => {
